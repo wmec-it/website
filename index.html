@@ -29,7 +29,7 @@
       <section id="about">
         <div class="anim" id="aboutSection_anim">
           <h1 class="about-title" id="about_section_title">About us</h1>
-          <p class="about-text">
+          <p class="about-text" id="aboutSection_text_anim">
             This is a two-year program at
             <span id="school_name"></span> consisting of numerous real-world
             certification courses. Students have the opportunity to earn
@@ -37,7 +37,8 @@
             in a professional environment & get contacts in the professional
             world during this program. With hands-on work and numerous
             certification opportunities, students can gain work experience and
-            become more successful later in their careers..
+            become more successful later in their careers.. -
+            <span class="h">Daniel Lockerby (Ambassador)</span>
           </p>
         </div>
       </section>
@@ -58,6 +59,12 @@
         "homeSection_subtitle_anim"
       );
       const aboutSectionAnim = document.getElementById("aboutSection_anim");
+      const aboutSectionTitleAnim = document.getElementById(
+        "about_section_title"
+      );
+      const aboutSectionTextAnim = document.getElementById(
+        "aboutSection_text_anim"
+      );
 
       const homeSectionSubtitleAnimObserver = new IntersectionObserver(
         (entries) => {
@@ -85,8 +92,36 @@
         { threshold: 0.1 }
       );
 
+      const aboutSectionTitleAnimObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              requestAnimationFrame(() => {
+                aboutSectionTitleAnim.classList.add("visible");
+              });
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      const aboutSectionTextAnimObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              requestAnimationFrame(() => {
+                aboutSectionTextAnim.classList.add("visible");
+              });
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
       homeSectionSubtitleAnimObserver.observe(homeSectionSubtitleAnim);
       aboutSectionAnimObserver.observe(aboutSectionAnim);
+      aboutSectionTitleAnimObserver.observe(aboutSectionTitleAnim);
+      aboutSectionTextAnimObserver.observe(aboutSectionTextAnim);
     </script>
   </body>
 </html>

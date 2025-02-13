@@ -256,3 +256,62 @@ section#about .anim.visible {
   opacity: 1; /* Show the element */
   transform: translateY(0); /* Move the element to its original position */
 }
+
+section#about h1 {
+  text-align: center;
+  width: 100%;
+  color: rgb(230, 230, 230);
+  font-size: 4em;
+  font-family: "ZenDots", sans-serif;
+  top: 15px;
+  background: transparent;
+  position: absolute;
+  transition: 1s ease all;
+}
+
+section#about h1.visible {
+  background: var(--accent-color-darker);
+}
+
+section#about p {
+  --q-color: var(--accent-color-darker);
+
+  max-width: 80%;
+  font-size: 1.5em;
+  line-height: 1.8em;
+  font-weight: 600;
+  color: rgb(210, 210, 210);
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 20px 40px;
+  position: relative;
+  transform: translateY(100%);
+  transition: transform 2s;
+  outline: 2px solid var(--accent-color-darker);
+}
+
+section#about p.visible {
+  transform: translateY(0);
+}
+
+section#about p::before {
+  content: '"';
+  font-size: 8em;
+  left: -25px;
+  top: 0;
+  position: absolute;
+  color: var(--q-color);
+}
+
+section#about p::after {
+  content: '"';
+  font-size: 8em;
+  right: -25px;
+  bottom: -50px;
+  position: absolute;
+  color: var(--q-color);
+}
+
+section#about p span.h {
+  color: var(--accent-color-darker);
+}
